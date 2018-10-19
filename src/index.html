@@ -7,11 +7,24 @@
   <body>
     <div class="container">
       <h1>Find Your Doctor</h1>
-      <label for="symptom">Find by symptom:</label>
-      <input id="symptom" type="text">
-      <label for="name">Find by doctor's name:</label>
-      <input id="name" type="text"><br>
-      <button class="btn-success" id="symptomSearch">Search</button>
+
+      <form id="symptomSearch">
+        <label for="symptom">Find by symptom:</label>
+        <input id="symptom" type="text">
+        <button class="btn btn-info" type="submit">Search</button>
+      </form>
+
+      <form id="nameSearch">
+        <label for="name">Find by doctor's name:</label>
+        <input id="name" type="text"><br>
+        <button class="btn btn-info" type="submit">Search</button>
+      </form>
+
+      <form id="locationSearch">
+        <label for="location">Find by doctor's location:</label>
+        <input id="location" type="text"><br>
+        <button class="btn btn-info" type="submit">Search</button>
+      </form>
 
       <div class="totalFound">
       </div>
