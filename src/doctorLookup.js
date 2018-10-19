@@ -1,13 +1,13 @@
 /* eslint-disable no-unused-vars */
 var Promise = require('es6-promise').Promise;
-import {Geocode} from './geocode.js'
+import {Geocode} from './geocode.js';
 
 export class DoctorLookup{
-  findDoctor(symptom, name, location, page){
+  findDoctor(symptom, name, location, specialty, page){
     location = location || "or-portland";
     return new Promise(function(resolve, reject){
       let request = new XMLHttpRequest();
-      let url = `https://api.betterdoctor.com/2016-03-01/doctors?name=${name}&query=${symptom}&location=${location}&skip=${page}&limit=10&user_key=${process.env.exports.apiKey}`;
+      let url = `https://api.betterdoctor.com/2016-03-01/doctors?name=${name}&query=${symptom}&location=${location}&skip=${page}&limit=10&user_key=${process.env.exports.apiKey}&specialty_uid=${specialty}`;
 
 
       request.onload = function(){
@@ -23,11 +23,11 @@ export class DoctorLookup{
   }
 
   findDoctorBySymptom(symptom,page) {
-    return this.findDoctor(symptom,"","",page);
+    return this.findDoctor(symptom,"","","",page);
   }
 
   findDoctorByName(name,page) {
-    return this.findDoctor("",name,"",page);
+    return this.findDoctor("",name,"","",page);
   }
 
   findDoctorByLocation(location,page) {
@@ -44,8 +44,51 @@ export class DoctorLookup{
       locationKey = lat+","+lng+","+10;
       console.log(locationKey);
 
-      let docPromise = self.findDoctor("","",locationKey,page);
+      let docPromise = self.findDoctor("","",locationKey,"",page);
       return docPromise;
+    });
+  }
+
+  findDoctorBySpecialty (specialty,page) {
+    return this.findDoctor("","","wa-seattle",specialty,page);
+  }
+
+  findUltimateDoctor (symptom, name, location, specialty, page) {
+    location = location || "or-portland";
+    console.log("ultdoctor runned");
+    let self = this;
+    console.log("doc-loc");
+    let newGeocode = new Geocode();
+    let geoPromise = newGeocode.findLngLat(location);
+    let locationKey = "";
+    return geoPromise.then(function(response){
+      console.log("geo-loc"+geoPromise);
+      let geoBody = JSON.parse(response);
+      let lng = (geoBody.postalCodes[0].lng).toString();
+      let lat = (geoBody.postalCodes[0].lat).toString();
+      locationKey = lat+","+lng+","+10;
+      console.log(locationKey);
+
+      let docPromise = self.findDoctor(symptom, name, locationKey, specialty, page);
+      return docPromise;
+    });
+  }
+
+
+  getSpecialties() {
+    return new Promise(function(resolve, reject){
+      let request = new XMLHttpRequest();
+      let url = `   https://api.betterdoctor.com/2016-03-01/specialties?skip=0&user_key=${process.env.exports.apiKey}`;
+
+      request.onload = function(){
+        if (this.status === 200) {
+          resolve(request.response);
+        } else {
+          reject(Error(request.statusText));
+        }
+      };
+      request.open("GET", url, true);
+      request.send();
     });
   }
 }
