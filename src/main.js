@@ -162,8 +162,9 @@ $(document).ready(function(){
     let location = $('#location').val();
     let doctorLookup = new DoctorLookup();
     let promise = doctorLookup.findDoctorByLocation(location,page);
-
+    console.log(promise);
     promise.then(function(response){
+      console.log("LOAD");
       let doctor = JSON.parse(response);
       totalFound = doctor.meta.total;
       count = 0;
@@ -196,9 +197,9 @@ $(document).ready(function(){
         count++;
       }
       if (totalFound === 0){
-        $('.showCounter').text("No doctor found meeting critieria");
+        $('.totalFound').text("No doctor found meeting critieria");
       } else {
-        $('.showCounter').text("Found "+totalFound+" doctors" );
+        $('.totalFound').text("Found "+totalFound+" doctors" );
       }
       if(totalFound > 10) {
 
