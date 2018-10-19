@@ -1,0 +1,21 @@
+.doctorName {
+  font-weight: bold;
+}
+
+ul {
+  list-style: none;
+}
+
+a li {
+  color: blue;
+}
+
+a li:hover {
+  cursor: pointer;
+  color: skyblue;
+  text-decoration: underline;
+}
+
+button.btn.btn-info {
+    display: block;
+}
