@@ -17,5 +17,12 @@ a li:hover {
 }
 
 button.btn.btn-info {
-    display: block;
+  margin-bottom: 5%;
+  display: block;
+}
+
+a.page-control {
+  margin-top: 5%;
+  margin-left: 33%;
+  float: left;
 }
