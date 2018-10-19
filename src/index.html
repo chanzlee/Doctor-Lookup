@@ -6,25 +6,70 @@
   </head>
   <body>
     <div class="container">
-      <h1>Better Doctor - Find Your Doctor</h1>
+      <div class="jumbotron">
+        <h1>Better Doctor - Find Your Doctor</h1>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <h3>Find by single criteria</h3>
+          <form id="symptomSearch">
+            <label for="symptom">Find by symptom:</label>
+            <input id="symptom" type="text">
+            <button class="btn btn-info" type="submit">Search</button>
+          </form>
 
-      <form id="symptomSearch">
-        <label for="symptom">Find by symptom:</label>
-        <input id="symptom" type="text">
-        <button class="btn btn-info" type="submit">Search</button>
-      </form>
+          <form id="nameSearch">
+            <label for="name">Find by doctor's name:</label>
+            <input id="name" type="text"><br>
+            <button class="btn btn-info" type="submit">Search</button>
+          </form>
 
-      <form id="nameSearch">
-        <label for="name">Find by doctor's name:</label>
-        <input id="name" type="text"><br>
-        <button class="btn btn-info" type="submit">Search</button>
-      </form>
+          <form id="locationSearch">
+            <label for="location">Find by doctor's location:</label>
+            <input id="location" type="text"><br>
+            <button class="btn btn-info" type="submit">Search</button>
+          </form>
 
-      <form id="locationSearch">
-        <label for="location">Find by doctor's location:</label>
-        <input id="location" type="text"><br>
-        <button class="btn btn-info" type="submit">Search</button>
-      </form>
+
+          <form id="specialtySearch">
+            <label for="sel1">Find by Specialty:</label>
+            <select id="specialtyCheck">
+              <option></option>
+            </select>
+            <button type="submit" class="btn btn-info">Search</button>
+          </form>
+        </div>
+
+        <div class="col-md-6">
+          <h3>Ultimate Search (multiple criteria)</h3>
+          <p>* you can leave the field empty *</p>
+
+
+          <form id="ultimateSearch">
+            <div class="form-group">
+              <label for="symptom-mult">Symptom:</label>
+              <input class="form-control" id="symptom-mult" type="text">
+            </div>
+            <div class="form-group">
+              <label for="name-mult">Doctor's name:</label>
+              <input class="form-control" id="name-mult" type="text"><br>
+            </div>
+            <div class="form-group">
+              <label for="location-mult">Location:</label>
+              <input class="form-control" id="location-mult" type="text"><br>
+            </div>
+            <div class="form-group">
+              <label for="specialtyCheck-mult">Specialty:</label>
+              <select class="form-control" id="specialtyCheck-mult">
+                <option></option>
+              </select>
+            </div>
+
+            <button type="submit" class="btn btn-info">Search</button>
+          </form>
+        </div>
+      </div>
+
 
       <div class="totalFound">
       </div>
@@ -33,9 +78,10 @@
       <div id="page-indices">
         <ul id="page-browser">
         </ul>
-        <ul>
-          <a class= "page-control" id="nextPage"><li><< Next page</li></a>
-          <a class= "page-control" id="previousPage"><li>Previous page >></li></a>
+        <ul class= "page-control">
+          <a id="nextPage"><li><< Next page</li></a>
+          <a id="relatedDoctor"><li>Search Related Doctor</li></a>
+          <a id="previousPage"><li>Previous page >></li></a>
         </ul>
       </div>
     </div>
