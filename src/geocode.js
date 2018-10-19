@@ -6,7 +6,7 @@ export class Geocode{
     return new Promise(function(resolve, reject){
       let request = new XMLHttpRequest();
       let url =
-      `http://api.geonames.org/postalCodeSearchJSON?placename=${placeName}&maxRows=1&username=goenchan`
+      `http://api.geonames.org/postalCodeSearchJSON?placename=${placeName}&maxRows=1&username=goenchan`;
 
       request.onload = function(){
         if (this.status === 200) {

@@ -196,9 +196,7 @@ $(document).ready(function(){
     let location = $('#location').val();
     let doctorLookup = new DoctorLookup();
     let promise = doctorLookup.findDoctorByLocation(location,page);
-    console.log(promise);
     promise.then(function(response){
-      console.log("LOAD");
       let doctor = JSON.parse(response);
       totalFound = doctor.meta.total;
       count = 0;
@@ -276,9 +274,7 @@ $(document).ready(function(){
     let specialty = $('#specialtyCheck').val();
     let doctorLookup = new DoctorLookup();
     let promise = doctorLookup.findDoctorBySpecialty(specialty,page);
-    console.log(promise);
     promise.then(function(response){
-      console.log("LOAD");
       let doctor = JSON.parse(response);
       totalFound = doctor.meta.total;
       count = 0;
@@ -359,14 +355,11 @@ $(document).ready(function(){
     let location = $('#location-mult').val();
     let specialty = $('#specialtyCheck-mult').val();
     let doctorLookup = new DoctorLookup();
-    console.log("ultimatevaluegrabbed");
     let promise = doctorLookup.findUltimateDoctor(symptom, name, location, specialty, page);
 
     promise.then(function(response){
-      console.log("promise onload");
       let doctor = JSON.parse(response);
       totalFound = doctor.meta.total;
-      console.log(totalFound);
       count = 0;
       for (let i = 0; i < doctor.data.length; i++) {
         let website = doctor.data[i].practices[0].website;

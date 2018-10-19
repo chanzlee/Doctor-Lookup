@@ -32,17 +32,14 @@ export class DoctorLookup{
 
   findDoctorByLocation(location,page) {
     let self = this;
-    console.log("doc-loc");
     let newGeocode = new Geocode();
     let geoPromise = newGeocode.findLngLat(location);
     let locationKey = "";
     return geoPromise.then(function(response){
-      console.log("geo-loc");
       let geoBody = JSON.parse(response);
       let lng = geoBody.postalCodes[0].lng.toString();
       let lat = geoBody.postalCodes[0].lat.toString();
       locationKey = lat+","+lng+","+10;
-      console.log(locationKey);
 
       let docPromise = self.findDoctor("","",locationKey,"",page);
       return docPromise;
@@ -55,20 +52,15 @@ export class DoctorLookup{
 
   findUltimateDoctor (symptom, name, location, specialty, page) {
     location = location || "or-portland";
-    console.log("ultdoctor runned");
     let self = this;
-    console.log("doc-loc");
     let newGeocode = new Geocode();
     let geoPromise = newGeocode.findLngLat(location);
     let locationKey = "";
     return geoPromise.then(function(response){
-      console.log("geo-loc"+geoPromise);
       let geoBody = JSON.parse(response);
       let lng = (geoBody.postalCodes[0].lng).toString();
       let lat = (geoBody.postalCodes[0].lat).toString();
       locationKey = lat+","+lng+","+10;
-      console.log(locationKey);
-
       let docPromise = self.findDoctor(symptom, name, locationKey, specialty, page);
       return docPromise;
     });
