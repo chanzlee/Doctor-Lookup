@@ -1,4 +1,4 @@
-# _Super Galactic Age Calculator_
+# _Doctor Lookup_
 
 #### by _Chan Lee_  10/19/2018
 
@@ -19,6 +19,12 @@ This program provide list of doctors that provides the services. Users can set t
 5. If there are no doctors matching the search parameters, response will tell the user that no doctors match the criteria.
 
 6. Allow users to search by location.
+
+7. Retrieve the list of specialities from the database before you query for a doctor, then return that list in a dropdown menu.
+
+8. Create a list of "related doctors" and display it.
+
+9. Allow users to browse to previous or next search result page.
 
 ## Setup/Installation Requirements
 
