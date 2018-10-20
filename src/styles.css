@@ -25,7 +25,7 @@ ul {
 }
 
 a li {
-  color: blue;
+  color: navy;
 }
 
 select#specialtyCheck {
@@ -34,7 +34,7 @@ select#specialtyCheck {
 
 a li:hover {
   cursor: pointer;
-  color: skyblue;
+  color: blue;
   text-decoration: underline;
 }
 
@@ -78,6 +78,7 @@ div.card {
 }
 
 footer {
+  margin-top: 10%;
   padding-top: 5%;
   text-align: center;
   display: block;
