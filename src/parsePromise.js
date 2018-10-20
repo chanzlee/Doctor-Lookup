@@ -2,11 +2,12 @@
 import $ from 'jquery';
 import { DoctorLookup } from './../src/doctorLookup.js';
 
-let totalFound;
-let count;
-let page;
+export let totalFound;
+export let count;
+export let page=0;
 
 export function parsePromise (response, searchCriteria) {
+
   let body = JSON.parse(response);
   totalFound = body.meta.total;
   count = 0;
@@ -50,9 +51,9 @@ export function parsePromise (response, searchCriteria) {
   if(totalFound > 10) {
 
     $('#nextPage').click(function(){
-      if(page < Math.ceil(totalFound/10)) {
+      if(page < Math.floor(totalFound/10)-1) {
         page += 1;
-        $('#${searchCriteria}Search').submit();
+        $(`#${searchCriteria}`).submit();
       } else {
         alert("Last Page");
       }
@@ -61,7 +62,7 @@ export function parsePromise (response, searchCriteria) {
     $('#previousPage').click(function(){
       if (page > 0) {
         page -= 1;
-        $(`#${searchCriteria}Search`).submit();
+        $(`#${searchCriteria}`).submit();
       } else {
         alert("First Page");
       }
@@ -70,6 +71,6 @@ export function parsePromise (response, searchCriteria) {
 
   $(`#relatedDoctor`).click(function(){
     document.getElementById(`${searchCriteria}`).value = "lung";
-    $(`#${searchCriteria}Search`).submit();
+    $(`#${searchCriteria}`).submit();
   });
 }

@@ -36,7 +36,7 @@
             <select id="specialtyCheck">
               <option></option>
             </select>
-            <button type="submit" class="btn btn-info">Search</button>
+            <button onclick="window.location.href='#auto-focus'" type="submit" class="btn btn-info">Search</button>
           </form>
         </div>
 
@@ -69,7 +69,7 @@
           </form>
         </div>
       </div>
-      <hr>
+      <hr id="auto-focus">
 
       <div class="totalFound">
       </div>
@@ -80,9 +80,9 @@
         <ul id="page-browser">
         </ul>
         <ul class= "page-control">
-          <a id="nextPage"><li><< Next page</li></a>
+          <a id="previousPage"><li><< Previous page</li></a>
           <a id="relatedDoctor"><li>Search Related Doctor</li></a>
-          <a id="previousPage"><li>Previous page >></li></a>
+          <a id="nextPage"><li> Next page >></li></a>
         </ul>
       </div>
     </div>

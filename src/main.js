@@ -4,13 +4,11 @@ import 'bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './styles.css';
 import { DoctorLookup } from './../src/doctorLookup.js';
-import { parsePromise } from './../src/parsePromise.js';
+import { parsePromise, page, totalFound, count } from './../src/parsePromise.js';
 
 $(document).ready(function(){
+
   $("#page-indices").hide();
-  let totalFound;
-  let count;
-  let page=0;
 
   // list of specialty to specialty form fields
   let specialtyLookup = new DoctorLookup();
@@ -38,6 +36,7 @@ $(document).ready(function(){
     let promise = doctorLookup.findDoctorBySymptom(symptom,page);
 
     promise.then(function(response){
+
       parsePromise(response, "symptom");
     }, function(error) {
       $('.search').text(error.message);
@@ -47,6 +46,7 @@ $(document).ready(function(){
   // Search by Name
   $('#nameSearch').submit(function(event){
     event.preventDefault();
+    window.location.href='#auto-focus';
     $("#page-indices").show();
     $('.search').text("");
 
@@ -64,6 +64,7 @@ $(document).ready(function(){
   // Search by Location
   $('#locationSearch').submit(function(event){
     event.preventDefault();
+    window.location.href='#auto-focus';
     $("#page-indices").show();
     $('.search').text("");
 
@@ -80,6 +81,7 @@ $(document).ready(function(){
   // Search by Specialty
   $('#specialtySearch').submit(function(event){
     event.preventDefault();
+    window.location.href='#auto-focus';
     $("#page-indices").show();
     $('.search').text("");
 
@@ -97,6 +99,7 @@ $(document).ready(function(){
   //ultimate multiple criteria search
   $('#ultimateSearch').submit(function(event){
     event.preventDefault();
+    window.location.href='#auto-focus';
     $("#page-indices").show();
     $('.search').text("");
 
