@@ -1,5 +1,23 @@
+* {
+  border-radius: 10px;
+}
+
 .doctorName {
   font-weight: bold;
+}
+
+h3, h4, h5, h5 {
+  margin-bottom: 3%;
+}
+
+div.jumbotron {
+  background-color: #52143d;
+  color: white;
+  box-shadow: 5px 10px;
+}
+
+div.card {
+  box-shadow: 2px 5px;
 }
 
 ul {
@@ -21,9 +39,16 @@ a li:hover {
 }
 
 button.btn.btn-info {
+  border: white;
+  background-color: #a3297a;
   margin-top: 3%;
   margin-bottom: 5%;
   display: block;
+}
+
+button.btn.btn-info:hover {
+  border: #cc3399;
+  background-color: #cc3399;
 }
 
 ul.page-control {
@@ -50,4 +75,20 @@ div.card {
 
 .row p{
   margin-left: 5%;
+}
+
+footer {
+  padding-top: 5%;
+  text-align: center;
+  display: block;
+  width: 100%;
+  height: 200px;
+  font-size: 11px;
+  color: white;
+  background-color: rgb(102, 128, 153);
+  border-radius: 0;
+}
+
+footer a{
+  color:white;
 }
