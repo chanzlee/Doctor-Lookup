@@ -28,6 +28,7 @@ $(document).ready(function(){
   //search by symptom
   $('#symptomSearch').submit(function(event){
     event.preventDefault();
+    window.location.href='#auto-focus';
     $("#page-indices").show();
     $('.search').text("");
 

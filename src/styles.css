@@ -7,7 +7,7 @@
 }
 
 h3, h4, h5, h5 {
-  margin-bottom: 3%;
+  margin-bottom: 5%;
 }
 
 div.jumbotron {
@@ -42,7 +42,7 @@ button.btn.btn-info {
   border: white;
   background-color: #a3297a;
   margin-top: 3%;
-  margin-bottom: 5%;
+  margin-bottom: 6%;
   display: block;
 }
 
