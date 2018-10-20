@@ -6,6 +6,8 @@
 
 This program provide list of doctors that provides the services. Users can set the criteria of medical symptom, place nearby and name of the doctor to facilitate this process. Website will retrieve data from Better Doctor API, with some other information including first and last name, address, phone number, website url, whether said doctor is taking new patients, and short Biography.
 
+[Screenshot](/src/img/screenshot.png)
+
 ## Specifications
 
 1. Allow users to input and search through doctors by medical issue.
